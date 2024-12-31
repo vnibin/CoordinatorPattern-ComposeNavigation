@@ -8,7 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.coordinatorpattern_composenavigation.navigation.App
+import com.example.coordinatorpattern_composenavigation.navigation.AppNavigation
 import com.example.coordinatorpattern_composenavigation.ui.theme.CoordinatorPatternComposeNavigationTheme
 
 
@@ -19,8 +19,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CoordinatorPatternComposeNavigationTheme {
 
-                App()
-               // AppNavigation()
+                AppNavigation()
             }
 
         }

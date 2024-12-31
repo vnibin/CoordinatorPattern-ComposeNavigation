@@ -1,8 +1,8 @@
 package com.example.login
 
+import android.util.Log
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.example.navigation.Coordinator
 
@@ -19,9 +19,14 @@ class AuthCoordinator(
 
     override fun getRouteRegistrationLambda(): NavGraphBuilder.() -> Unit {
         return {
+
             composable("login") {
                 // Display the login screen
-                LoginScreen(onLoginSuccess = { onLoginSuccess() })
+                LoginScreen(onLoginSuccess = {
+                    Log.d("Nibin","Authcoordinator getRouteRegistraionLambda fn invoked")
+
+                    onLoginSuccess()
+                })
             }
         }
     }

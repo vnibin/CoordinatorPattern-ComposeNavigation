@@ -1,13 +1,15 @@
 package com.example.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun DynamicNavigationHost(startDestination: String, registerRoutesFunctions: List<NavGraphBuilder.() -> Unit>) {
-    val navController = rememberNavController()
+fun DynamicNavigationHost(navController: NavHostController, startDestination: String, registerRoutesFunctions: List<NavGraphBuilder.() -> Unit>) {
+
 
     // Attach the navController to each coordinator (if necessary)
     // You can skip this if coordinators are already handling their own navigation
@@ -21,6 +23,7 @@ fun DynamicNavigationHost(startDestination: String, registerRoutesFunctions: Lis
         }
     }
 }
+
 
 
 
