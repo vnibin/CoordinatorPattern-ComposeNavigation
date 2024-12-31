@@ -5,6 +5,7 @@ import androidx.navigation.NavGraphBuilder
 import com.example.home.HomeCoordinator
 import com.example.login.AuthCoordinator
 import com.example.navigation.Coordinator
+import com.example.profile.ProfileCoordinator
 
 
 class AppCoordinator(navigationController: NavController) : Coordinator(navigationController) {
@@ -18,10 +19,14 @@ class AppCoordinator(navigationController: NavController) : Coordinator(navigati
 
     private val homeCoordinator = HomeCoordinator(
         navigationController,
-        onLogOut = {
-            onBackPressed()
-
+        navigateToProfile = {
+            switchToProfileCoordinator()
         }
+    )
+
+    private val profileCoordinator = ProfileCoordinator(
+        navigationController,
+
     )
 
     override fun start() {}
@@ -31,6 +36,7 @@ class AppCoordinator(navigationController: NavController) : Coordinator(navigati
             // Register routes for the AuthCoordinator
             authCoordinator.getRouteRegistrationLambda().invoke(this)
             homeCoordinator.getRouteRegistrationLambda().invoke(this)
+            profileCoordinator.getRouteRegistrationLambda().invoke(this)
         }
     }
 
@@ -38,6 +44,10 @@ class AppCoordinator(navigationController: NavController) : Coordinator(navigati
         homeCoordinator.start()
     }
 
+    private fun switchToProfileCoordinator() {
+        profileCoordinator.start()
+    }
+
     val coordinators: List<Coordinator>
-        get() = listOf(authCoordinator, homeCoordinator)
+        get() = listOf(authCoordinator, homeCoordinator,profileCoordinator)
 }

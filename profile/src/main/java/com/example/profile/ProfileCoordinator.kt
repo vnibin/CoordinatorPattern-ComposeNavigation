@@ -1,4 +1,4 @@
-package com.example.login
+package com.example.profile
 
 import android.util.Log
 import androidx.navigation.NavController
@@ -6,30 +6,27 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.example.navigation.Coordinator
 
-
-class AuthCoordinator(
+class ProfileCoordinator(
     navigationController: NavController,
-    private val onLoginSuccess: () -> Unit
 ) : Coordinator(navigationController) {
 
     override fun start() {
         // Navigate to the login screen
-        navigationController.navigate(LoginRoutes.LOGIN.route)
+        navigationController.navigate(ProfileRoutes.PROFILE.route)
     }
 
     override fun getRouteRegistrationLambda(): NavGraphBuilder.() -> Unit {
         return {
 
-            composable(LoginRoutes.LOGIN.route) {
+            composable(ProfileRoutes.PROFILE.route) {
                 // Display the login screen
-                LoginScreen(onLoginSuccess = {
-                    Log.d("Nibin","Authcoordinator getRouteRegistraionLambda fn invoked")
-                    onLoginSuccess()
-                })
+                ProfileScreen(this@ProfileCoordinator)
+            }
+
+            composable(ProfileRoutes.PROFILE_DETAILS.route) {
+                // Display the login screen
+                ProfileDetailScreen(this@ProfileCoordinator)
             }
         }
     }
 }
-
-
-

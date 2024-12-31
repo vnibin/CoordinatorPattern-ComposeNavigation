@@ -8,18 +8,17 @@ import com.example.navigation.Coordinator
 
 class HomeCoordinator(
     navigationController: NavController,
-    private val onLogOut: () -> Unit): Coordinator(navigationController) {
+    private val navigateToProfile: () -> Unit): Coordinator(navigationController) {
     override fun start() {
         navigationController.navigate(HomeRoutes.HOME.route)
     }
 
     override fun getRouteRegistrationLambda(): NavGraphBuilder.() -> Unit {
         return {
-            Log.d("Nibin","Home Coordinator")
             composable(HomeRoutes.HOME.route) {
-                HomeScreen(onLogOut = {
-                    onLogOut()
-                })
+                HomeScreen(navigateToProfile = {
+                    navigateToProfile()
+                },this@HomeCoordinator)
             }
         }
     }

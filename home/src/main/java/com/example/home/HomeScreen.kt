@@ -17,12 +17,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun HomeScreen(onLogOut: () -> Unit)
+fun HomeScreen(navigateToProfile: () -> Unit,homeCoordinator: HomeCoordinator)
 {
     Box(modifier = Modifier.fillMaxSize()) {
         // Logout button at the top-left corner
         IconButton(
-            onClick = { onLogOut() },
+            onClick = { homeCoordinator.onBackPressed() },
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .padding(16.dp)
@@ -41,10 +41,9 @@ fun HomeScreen(onLogOut: () -> Unit)
         )
 
 
-
         // Go to Orders button at the bottom center
         Button(
-            onClick = {  },
+            onClick = { navigateToProfile() },
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(16.dp)
