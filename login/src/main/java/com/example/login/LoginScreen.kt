@@ -31,18 +31,6 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun LoginScreen(onLoginSuccess: () -> Unit) {
     Box(modifier = Modifier.fillMaxSize()) {
-        IconButton(
-            onClick = {  },
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .padding(16.dp)
-        ) {
-            Icon(
-                imageVector = Icons.Default.Settings,
-                contentDescription = "Settings"
-            )
-        }
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
