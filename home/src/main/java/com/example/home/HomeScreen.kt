@@ -49,7 +49,7 @@ fun HomeScreen(navigateToProfile: () -> Unit,homeCoordinator: HomeCoordinator)
                 .align(Alignment.BottomCenter)
                 .padding(16.dp)
         ) {
-            Text("Go to Orders")
+            Text("Go to Profiles")
         }
     }
 }
