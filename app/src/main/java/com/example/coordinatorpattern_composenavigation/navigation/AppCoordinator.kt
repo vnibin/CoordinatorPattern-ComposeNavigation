@@ -33,7 +33,7 @@ class AppCoordinator(navigationController: NavController) : Coordinator(navigati
 
     override fun getRouteRegistrationLambda(): NavGraphBuilder.() -> Unit {
         return {
-            // Register routes for the AuthCoordinator
+            // Register routes for all the coordinators
             authCoordinator.getRouteRegistrationLambda().invoke(this)
             homeCoordinator.getRouteRegistrationLambda().invoke(this)
             profileCoordinator.getRouteRegistrationLambda().invoke(this)

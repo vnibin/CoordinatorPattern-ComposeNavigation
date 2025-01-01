@@ -10,7 +10,7 @@ import com.example.navigation.DynamicNavigationHost
 fun AppNavigation() {
     val navController = rememberNavController()
 
-    // Create the AppCoordinator and AuthCoordinator
+
     val appCoordinator = AppCoordinator(navController)
 
     // Collect the registerRoutes functions from each coordinator (AppCoordinator and AuthCoordinator)
