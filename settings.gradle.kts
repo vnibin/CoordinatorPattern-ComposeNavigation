@@ -21,4 +21,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "CoordinatorPattern-ComposeNavigation"
 include(":app")
- 
+include(":home")
+include(":profile")
+include(":login")
+include(":navigation")
